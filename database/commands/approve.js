@@ -26,7 +26,7 @@ module.exports = {
 			.setMinValue(5)
 			.setMaxValue(10)
 			.setRequired(true)),
-	async execute({ interaction, db }) {
+	async execute({ interaction, db, client }) {
 		await interaction.deferReply();
 		let user = await interaction.options.getUser("user");
 		let level = await interaction.options.getString("level");
@@ -46,21 +46,12 @@ module.exports = {
 
 		db.write("users", userData);
 		db.write("submissions", submissions);
-
-		try {
-			await message.react("🍎");
-			await message.react("🍊");
-			await message.react("🍇");
-		} catch (error) {
-			console.error("One of the emojis failed to react:", error);
-		}
-		/*
-			!! OKAY KRISSY TODO LIST
-			First get channel from its id
-			get message from channel with id
-			react to message
-		*/
-		client.channels.cache.get("id");
+		let channel = await client.channels.fetch(submissions[user.id].threadID);
+		channel.messages
+			.fetch(submissions[user.id].messageID)
+			.then((message) => message.react('✅'))
+			.catch(console.error);
+		
 		return await interaction.editReply(
 			`${user.username}'${
 				user.username.substr(user.username.length - 1) == "s" ? "" : "s"

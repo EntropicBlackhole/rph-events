@@ -84,8 +84,8 @@ client.on(Discord.Events.MessageCreate, async (message) => {
 		let repoURL = messagePost.match(urlRegex)[0];
 		let lang = capitalize(messagePost.match(langRegex)[0]);
 		let difficulty = capitalize(messagePost.match(difficultyRegex)[0]);
-		console.log(`Repository: ${repoURL}\n${lang}\n${difficulty}`);
-		
+		// console.log(`Repository: ${repoURL}\n${lang}\n${difficulty}`);
+		//!! Post to webhook ^
 		let submissions = await db.read("submissions");
 		let userData = await db.read("users");
 		submissions[message.author.id] = {
@@ -93,7 +93,7 @@ client.on(Discord.Events.MessageCreate, async (message) => {
 			repo_link: repoURL,
 			language: lang.split(":")[1].trim(),
 			isVerified: false,
-			threadID: threadID,
+			threadID: message.channel.id,
 			messageID: message.id,
 			timestamp: Date.now(),
 		};
@@ -107,10 +107,11 @@ client.on(Discord.Events.MessageCreate, async (message) => {
 		//Webhook sending
 	}
 });
+
 client.on(Discord.Events.ThreadCreate, async (thread) => {
 	if (thread.type == Discord.ChannelType.PublicThread) {
 		if (thread.parentId != "1124162727510814860") return; //!! Change to rph's event forum
-		threadID = thread.id;
+		threadID = thread.id; //?? And also move up to a single if statement
 		// console.log(threadID); // The forum post ID
 		// console.log(thread.name); // The name of the forum post
 		// console.log(Date.now());
