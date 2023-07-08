@@ -1,10 +1,72 @@
 {
-  "708026434660204625": {
-    "points": 100,
-    "challenge_amt": [
-      3,
-      4,
-      10
-    ]
-  }
+	"201765854990434304": {
+		"name": "aplet123",
+		"points": 10,
+		"challenge_amt": [0, 0, 1]
+	},
+	"592103653352144929": {
+		"name": "erichtoaster",
+		"points": 10,
+		"challenge_amt": [0, 0, 1]
+	},
+	"648302591968542740": {
+		"name": "nosrep",
+		"points": 9,
+		"challenge_amt": [0, 0, 1]
+	},
+	"242341867834966016": {
+		"name": "pluto.viv",
+		"points": 8,
+		"challenge_amt": [0, 1, 0]
+	},
+	"627140312426610708": {
+		"name": "entropy_dev",
+		"points": 9,
+		"challenge_amt": [0, 1, 0]
+	},
+	"524637258431856650": {
+		"name": "thechosensasquatch",
+		"points": 10,
+		"challenge_amt": [0, 0, 1]
+	},
+	"564797966184087564": {
+		"name": "nombel_mombel",
+		"points": 8,
+		"challenge_amt": [0, 0, 1]
+	},
+	"581896956998189171": {
+		"name": "griannn",
+		"points": 8,
+		"challenge_amt": [0, 0, 1]
+	},
+	"779519660261376041": {
+		"name": "segfault_coredumped",
+		"points": 7,
+		"challenge_amt": [0, 1, 0]
+	},
+	"1101138339488338032": {
+		"name": "faust",
+		"points": 9,
+		"challenge_amt": [0, 0, 1]
+	},
+	"569504441003278346": {
+		"name": "yodi555",
+		"points": 10,
+		"challenge_amt": [0, 0, 1]
+	},
+	"428918925338869770": {
+		"name": "theoctogirl",
+		"points": 7,
+		"challenge_amt": [0, 1, 0]
+	},
+	"792796652615368724": {
+		"name": "nive_x",
+		"points": 7,
+		"challenge_amt": [0, 1, 0]
+	},
+	"705746620087664650": {
+		"name": "aimar5749",
+		"points": 10,
+		"challenge_amt": [0, 0, 1]
+	}
 }
