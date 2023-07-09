@@ -1,5 +1,5 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { codeBlock } = require("@discordjs/builders");
+const { EmbedBuilder, SlashCommandBuilder, codeBlock } = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
+//const { codeBlock } = require("@discordjs/builders");
 const functions = require('../bot/functions');
 const path = require('node:path');
 const fs = require('fs');

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
 
 module.exports = {
 	name: "Disapprove",
@@ -18,6 +18,7 @@ module.exports = {
 		),
 	async execute({ interaction, client, db }) {
 		await interaction.deferReply();
+		if (!["708026434660204625", "779519660261376041"].includes(interaction.user.id)) return interaction.editReply({ content: "You cant use this!", ephemeral: true})
 		let user = await interaction.options.getUser("user");
 		let reason = await interaction.options.getString("reason");
 		let submission = await db.read("submissions");

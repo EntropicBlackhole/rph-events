@@ -1,5 +1,5 @@
-const { Sequelize, DataTypes } = require("sequelize");
-const { ActionRowBuilder } = require("discord.js");
+//const { Sequelize, DataTypes } = require("sequelize");
+const { ActionRowBuilder } = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
 const fs = require("fs");
 exports.subStrBetweenChar = subStrBetweenChar;
 exports.randomColor = randomColor;
@@ -22,6 +22,7 @@ function shortenText(text, delimiter, max) {
 
 class Database {
   constructor(path) {
+      /*
     this.sequelize = new Sequelize({
       dialect: "sqlite",
       storage: path,
@@ -44,6 +45,7 @@ class Database {
       challenge_id: DataTypes.TEXT,
     });
     this.sequelize.sync();
+    */
   }
 
   async read({ table, ID }) {

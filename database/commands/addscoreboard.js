@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
 
 module.exports = {
 	name: "AddScoreBoard",
@@ -8,6 +8,7 @@ module.exports = {
 		.setName("add-scoreboard")
 		.setDescription("Adds a new scoreboard"),
 	async execute({ interaction, client, db }) {
+	    return
 		// let scoreboardChannel = await client.channels.cache.get("1126882595393769552");
 		let userData = await db.read("users");
 

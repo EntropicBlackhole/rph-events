@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const Discord = require("discord.js");
+//const Discord = require("discord.js");
+const Discord = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
 const functions = require("./database/bot/functions");
 const config = require("./database/bot/config.json");
 const db = new functions.DB();
@@ -88,7 +89,7 @@ client.on(Discord.Events.MessageCreate, async (message) => {
 				"It seems your post did not include a link to your repository, please contact <@708026434660204625> if your post does contain it and I'm just being dumb"
 			);
 		} else repoURL = repoURL[0];
-		let lang = capitalize(messagePost.match(langRegex));
+		let lang = messagePost.match(langRegex);
 		if (lang == null) {
 			await message.react("❌");
 			return await message.reply(
@@ -96,9 +97,9 @@ client.on(Discord.Events.MessageCreate, async (message) => {
 			);
 		}
 		// else lang = lang.split(":")[1].trim();
-		else lang = lang[0];
-		let difficulty = capitalize(messagePost.match(difficultyRegex));
-		if (difficulty != null) difficulty = difficulty[0];
+		else lang = capitalize(lang[0]);
+		let difficulty = messagePost.match(difficultyRegex);
+		if (difficulty != null) difficulty = capitalize(difficulty[0]);
 		let note = messagePost.match(noteRegex);
 		if (note != null) note = note[0];
 		// console.log(`Repository: ${repoURL}\n${lang}\n${difficulty}`);

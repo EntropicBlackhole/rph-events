@@ -4,7 +4,7 @@ const {
   ButtonBuilder,
   ButtonStyle,
   codeBlock,
-} = require("discord.js");
+} = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
 
 module.exports = {
   name: "List",

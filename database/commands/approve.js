@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
 
 module.exports = {
 	name: "Approve",
@@ -25,11 +25,12 @@ module.exports = {
 				.setDescription(
 					"How many points does this person deserve? (Follow the point system)"
 				)
-				.setMinValue(5)
+				.setMinValue(3)
 				.setMaxValue(10)
 				.setRequired(true)),
 	async execute({ interaction, db, client }) {
 		await interaction.deferReply();
+		if (!["708026434660204625", "779519660261376041"].includes(interaction.user.id)) return interaction.editReply({ content: "You cant use this!", ephemeral: true})
 		let user = await interaction.options.getUser("user");
 		let level = await interaction.options.getString("level");
 		let points = await interaction.options.getInteger("points");
@@ -64,31 +65,31 @@ module.exports = {
 		//?? Updating the scoreboard
 		userData = sortObject(userData);
 		let usernameLengthArray = [];
-		for (let user in userData) usernameLengthArray.push(userData[user].name.length);
+		for (let user2 in userData) usernameLengthArray.push(userData[user2].name.length);
 		let spacesToAdd = Math.max(...usernameLengthArray) + 1;
 		let mainString = `\`\`\`\n`;
 		for (let i = 0; i < spacesToAdd; i++) mainString += " ";
 		mainString += "| Points | Easy | Intermediate | Hard\n";
 		for (let i = 0; i < spacesToAdd; i++) mainString += "-";
 		mainString += "--------------------------------------\n";
-		for (let user in userData) {
-			mainString += userData[user].name;
-			for (let i = 0; i < spacesToAdd - userData[user].name.length; i++)
+		for (let user2 in userData) {
+			mainString += userData[user2].name;
+			for (let i = 0; i < spacesToAdd - userData[user2].name.length; i++)
 				mainString += " ";
 			mainString += "|";
-			if (userData[user].points.toString().length == 1) mainString += `    ${userData[user].points.toString()}   |`;
-			if (userData[user].points.toString().length == 2) mainString += `   ${userData[user].points.toString()}   |`;
-			if (userData[user].points.toString().length == 3) mainString += `   ${userData[user].points.toString()}  |`;
+			if (userData[user2].points.toString().length == 1) mainString += `    ${userData[user2].points.toString()}   |`;
+			if (userData[user2].points.toString().length == 2) mainString += `   ${userData[user2].points.toString()}   |`;
+			if (userData[user2].points.toString().length == 3) mainString += `   ${userData[user2].points.toString()}  |`;
 
-			if (userData[user].challenge_amt[0].toString().length == 1) mainString += `  ${userData[user].challenge_amt[0].toString()}   |`;
-			if (userData[user].challenge_amt[0].toString().length == 2) mainString += `  ${userData[user].challenge_amt[0].toString()}  |`;
-			if (userData[user].challenge_amt[0].toString().length == 3) mainString += ` ${userData[user].challenge_amt[0].toString()}  |`;
+			if (userData[user2].challenge_amt[0].toString().length == 1) mainString += `  ${userData[user2].challenge_amt[0].toString()}   |`;
+			if (userData[user2].challenge_amt[0].toString().length == 2) mainString += `  ${userData[user2].challenge_amt[0].toString()}  |`;
+			if (userData[user2].challenge_amt[0].toString().length == 3) mainString += ` ${userData[user2].challenge_amt[0].toString()}  |`;
 
-			if (userData[user].challenge_amt[1].toString().length == 1) mainString += `      ${userData[user].challenge_amt[1].toString()}       |`;
-			if (userData[user].challenge_amt[1].toString().length == 2) mainString += `     ${userData[user].challenge_amt[1].toString()}       |`;
-			if (userData[user].challenge_amt[1].toString().length == 3) mainString += `     ${userData[user].challenge_amt[1].toString()}      |`;
+			if (userData[user2].challenge_amt[1].toString().length == 1) mainString += `      ${userData[user2].challenge_amt[1].toString()}       |`;
+			if (userData[user2].challenge_amt[1].toString().length == 2) mainString += `     ${userData[user2].challenge_amt[1].toString()}       |`;
+			if (userData[user2].challenge_amt[1].toString().length == 3) mainString += `     ${userData[user2].challenge_amt[1].toString()}      |`;
 
-			mainString += `   ${userData[user].challenge_amt[2].toString()}\n`;
+			mainString += `   ${userData[user2].challenge_amt[2].toString()}\n`;
 			// mainString += "\n";
 		}
 		mainString += "```";
