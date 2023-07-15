@@ -27,15 +27,13 @@ module.exports = {
     if (detailed) {
       let embedList = [];
       for (let sub in submissions) {
-        // if (submissions[sub].isVerified) continue;
+        if (submissions[sub].isVerified) continue;
         const submissionEmbed = new EmbedBuilder()
           .setTitle(submissions[sub].username)
           .setDescription(
             `Repository: ${submissions[sub].repo_link}\nLanguage: ${
               submissions[sub].language
-            }\nDifficulty: ${submissions[sub].difficulty}\nIs Verified: ${
-              submissions[sub].isVerified
-            }\nTime of Posting: <t:${submissions[sub].timestamp
+            }\n${submissions[sub].difficulty}\nTime of Posting: <t:${submissions[sub].timestamp
               .toString()
               .substring(
                 0,
@@ -81,7 +79,7 @@ module.exports = {
         submissionEmbed.addFields([
           {
             name: submissions[sub].username,
-            value: codeBlock(`Repository link: ${submissions[sub].repo_link}\nLanguage: ${submissions[sub].language}\nDifficulty: ${submissions[sub].difficulty}`) + "\n"
+            value: codeBlock(`Repository link: ${submissions[sub].repo_link}\nLanguage:  ${submissions[sub].language}\n ${submissions[sub].difficulty}\n${submissions[sub].note}`) + "\n"
           },
         ]);
       }

@@ -3,11 +3,55 @@
     "username": "d.n_n.b",
     "repo_link": "https://www.desmos.com/calculator/d1f2svt6wp",
     "language": "Desmos",
-    "difficulty": "Difficult",
+    "difficulty": "Difficulty: Difficult",
     "note": "Note: why.",
     "isVerified": true,
     "threadID": "1127291554869027068",
     "messageID": "1127291554869027068",
     "timestamp": 1688837650500
+  },
+  "564797966184087564": {
+    "username": "nombel_mombel",
+    "repo_link": "https://github.com/Koenig-Heinrich-der-4te/ProgrammerHumorChallenges/blob/main/Week2_GraphPath/Intermediate.py",
+    "language": "Python",
+    "difficulty": "Difficulty: Intermediate",
+    "note": "Note: The Graph must be provided as a 2d array in graph.json",
+    "isVerified": true,
+    "threadID": "1127930722217381929",
+    "messageID": "1127930722217381929",
+    "timestamp": 1688990039789
+  },
+  "569504441003278346": {
+    "username": "yodi555",
+    "repo_link": "https://github.com/yoavs-shamay/ProgrammerHumorChallenges/tree/master/Week2",
+    "language": "Assembly",
+    "difficulty": "Difficulty: Difficult",
+    "note": "Note:  Written for linux x64, tested on an ubuntu virtual machine. make sure to allocate enough memory when testing on a virtual machine. Doesn't work for N = 25. The solution is in program.asm, with a main function  on main.asm that receives the input (but every number has to be on a separate line, first the number of nodes then the matrix). Added CPP code for  splitting the input from matrix to separate lines easily. There is a makefile for compilation, the compiled code is called \"program\".",
+    "isVerified": true,
+    "threadID": "1128602408797356133",
+    "messageID": "1128602408797356133",
+    "timestamp": 1689150182796
+  },
+  "648302591968542740": {
+    "username": "nosrep",
+    "repo_link": "https://github.com/Osrepnay/chlalnges",
+    "language": "Java",
+    "difficulty": "Diffіcultу: Difficult",
+    "note": "Note: its in java, very verbose, very slow, very overcomplicated, i implore you to test on n=25 as provided in repository and as specified in challenge, takes about 15 minutes on my computer then, i don'tt know how much heap it uses but you probably have to increase it, how it left up to reader, has a little bit of fluff at the top to fix graphs that have 0 as unconnected, you can remove this if your test case uses -1, , , ,",
+    "isVerified": false,
+    "threadID": "1128735538187345920",
+    "messageID": "1128735538187345920",
+    "timestamp": 1689174072000
+  },
+  "201765854990434304": {
+    "username": "aplet123",
+    "repo_link": "https://github.com/Aplet123/the-funnies/tree/master/second",
+    "language": "Python",
+    "difficulty": "Difficulty: Difficult",
+    "note": "Note: why waste time rewriting algorithms when they already exist, there's a python library for everything :), instead waste all your time writing the glue between the algorithms entirely within python pickle's stack vm because of course they had to make their serialization format turing complete",
+    "isVerified": false,
+    "threadID": "1129256906184200282",
+    "messageID": "1129256906184200282",
+    "timestamp": 1689306226334
   }
 }

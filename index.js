@@ -74,17 +74,19 @@ client.on(Discord.Events.InteractionCreate, async (interaction) => {
 
 let threadID = "";
 client.on(Discord.Events.MessageCreate, async (message) => {
+    if (message.author.bot) return
 	if (threadID == message.channel.id) {
 		let messagePost = message.content;
-		// console.log(messagePost)
+		console.log(messagePost)
 		let urlRegex =
-			/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+			/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
 		let langRegex = /(lang[^\n]+)/gi;
 		let difficultyRegex = /(diff[^\n]+)/gi;
 		let noteRegex = /Note.*/gis;
 		let repoURL = messagePost.match(urlRegex);
 		if (repoURL == null) {
 			await message.react("❌");
+			threadID = "";
 			return await message.reply(
 				"It seems your post did not include a link to your repository, please contact <@708026434660204625> if your post does contain it and I'm just being dumb"
 			);
@@ -92,6 +94,7 @@ client.on(Discord.Events.MessageCreate, async (message) => {
 		let lang = messagePost.match(langRegex);
 		if (lang == null) {
 			await message.react("❌");
+			threadID = "";
 			return await message.reply(
 				"It seems your post did not include a language, please contact <@708026434660204625> if your post does contain it and I'm just being dumb"
 			);
