@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 //const Discord = require("discord.js");
-const Discord = require('/data/data/com.termux/files/usr/lib/node_modules/discord.js')
+const Discord = require("discord.js");
 const functions = require("./database/bot/functions");
 const config = require("./database/bot/config.json");
 const db = new functions.DB();
@@ -74,12 +74,12 @@ client.on(Discord.Events.InteractionCreate, async (interaction) => {
 
 let threadID = "";
 client.on(Discord.Events.MessageCreate, async (message) => {
-    if (message.author.bot) return
+	if (message.author.bot) return;
 	if (threadID == message.channel.id) {
 		let messagePost = message.content;
-		console.log(messagePost)
+		console.log(messagePost);
 		let urlRegex =
-			/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
+			/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 		let langRegex = /(lang[^\n]+)/gi;
 		let difficultyRegex = /(diff[^\n]+)/gi;
 		let noteRegex = /Note.*/gis;

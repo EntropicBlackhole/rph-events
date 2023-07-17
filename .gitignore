@@ -1,2 +1,4 @@
 node_modules
 database/bot/config.json
+database/misc/submissions.json
+database/misc/users.json
