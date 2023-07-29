@@ -29,6 +29,8 @@ class DB {
 		this.dataTable = {
 			users: "./database/misc/users.json",
 			submissions: "./database/misc/submissions.json",
+			post_submissions: "./database/misc/post_submissions.json",
+			peoples_votes: "./database/misc/peoples_votes.json",
 		};
 	}
 	read(table) {
@@ -164,4 +166,4 @@ function sortObject(obj) {
 	return returnObj;
 }
 
-	exports.DB = DB;
+exports.DB = DB;

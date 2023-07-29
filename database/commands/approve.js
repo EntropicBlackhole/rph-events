@@ -73,6 +73,11 @@ module.exports = {
 
 		db.write("users", userData);
 		db.write("submissions", submissions);
+
+		let pSubs = await db.read("post_submissions");
+		pSubs.push(user.id.toString());
+		db.write("post_submissions", pSubs);
+		/*
 		let channel = await client.channels.fetch(submissions[user.id].threadID);
 		channel.messages
 			.fetch(submissions[user.id].messageID)
@@ -84,7 +89,7 @@ module.exports = {
 		let channelSB = await client.channels.fetch("1126882595393769552");
 		let messageSB = await channelSB.messages.fetch("1127050517474979941");
 		await messageSB.edit(parsedSB);
-
+*/
 		return await interaction.editReply(
 			`${user.username}'${
 				user.username.substr(user.username.length - 1) == "s" ? "" : "s"

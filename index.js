@@ -74,6 +74,7 @@ client.on(Discord.Events.InteractionCreate, async (interaction) => {
 
 let threadID = "";
 client.on(Discord.Events.MessageCreate, async (message) => {
+	return
 	if (message.author.bot) return;
 	if (threadID == message.channel.id) {
 		let messagePost = message.content;
